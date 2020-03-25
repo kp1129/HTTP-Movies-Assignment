@@ -31,6 +31,12 @@ function Movie({ addToSavedList, getMovieList }) {
     
   }
 
+  const updateMovie = (e) => {
+    const id = match.params.id;
+    e.preventDefault();
+    push(`/update-movie/${id}`);
+  }
+
   useEffect(() => {
     fetchMovie(match.params.id);
   }, [match.params.id]);
@@ -45,6 +51,9 @@ function Movie({ addToSavedList, getMovieList }) {
 
       <div className='save-button' onClick={saveMovie}>
         Save
+      </div>
+      <div className='update-button' onClick={updateMovie} >
+        Update
       </div>
       <div className='delete-button' onClick={deleteMovie}>
         Delete
